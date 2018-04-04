@@ -1,0 +1,10 @@
+Flask==0.12.2
+Flask-WTF==0.14.2
+Flask-Bootstrap==3.3.7.1
+Flask-Compress==1.4.0
+Flask-Cache==0.13.1
+flask-restplus==0.10.1
+flask-swagger==0.2.13
+httplib2==0.10.3
+configparser==3.5.0
+PyYAML==3.12
