@@ -13,7 +13,7 @@ from flask_moment import Moment
 moment = Moment()
 
 # Logging
-setup_logging
+setup_logging()
 
 # Define the WSGI application object
 app = Flask(__name__)
