@@ -5,6 +5,7 @@ Flask-Compress==1.4.0
 Flask-Cache==0.13.1
 flask-restplus==0.10.1
 flask-swagger==0.2.13
+flask-moment==0.6.0
 httplib2==0.10.3
 configparser==3.5.0
 PyYAML==3.12

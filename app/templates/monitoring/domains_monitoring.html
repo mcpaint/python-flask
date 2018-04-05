@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1 class="page-header">{{title}} - {{phase}}</h1>
+
+  <p>
+    <a class="btn {% if phase == 'alpha' %} btn-primary {% else %} btn-default {% endif %}" href="/monitoring/domains/alpha">alpha</a>
+    <a class="btn {% if phase == 'sandbox' %} btn-primary {% else %} btn-default {% endif %}" href="/monitoring/domains/sandbox">sandbox</a>
+    <a class="btn {% if phase == 'beta' %} btn-primary {% else %} btn-default {% endif %}" href="/monitoring/domains/beta">beta</a>
+    <a class="btn {% if phase == 'cbt' %} btn-primary {% else %} btn-default {% endif %}" href="/monitoring/domains/cbt">cbt</a>
+    <a class="btn {% if phase == 'real' %} btn-primary {% else %} btn-default {% endif %}" href="/monitoring/domains/real">real</a>
+  </p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Domain</th>
+        <th>Test</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for row in list %}
+      <tr>
+        <td>{{row.project}}</td>
+        <td>
+          {{row.domain}}
+        </td>
+        <td>
+          <a href="http://{{row.domain}}" target="_blank">http</a>
+          <a href="https://{{row.domain}}" target="_blank">https</a>
+        </td>
+        <td>
+          {% if row.active %}
+          <span class="label label-success">{{row.active}}</span>
+          {% else %}
+          <span class="label label-danger">{{row.active}}</span>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

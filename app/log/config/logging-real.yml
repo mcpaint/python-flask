@@ -1,0 +1,36 @@
+---
+version: 1
+disable_existing_loggers: False
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  complex:
+    format: "%(asctime)s - %(name)s - %(lineno)d -  %(message)s"
+
+handlers:
+  console:
+    class: app.log.log.ConsoleHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+
+  file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: simple
+    filename: logs/application.log
+    encoding: utf8
+
+#loggers:
+#  console:
+#    level: DEBUG
+#    handlers: [console]
+#    propagate: no
+#  info_file_handler:
+#    level: DEBUG
+#    handlers: [file]
+#    propagate: no
+
+root:
+    level: INFO
+    handlers: [file_handler]
